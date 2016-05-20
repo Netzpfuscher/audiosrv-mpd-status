@@ -22,8 +22,8 @@ lstmatrix = ['07','16','08','05','06']
 while 1:
 	time.sleep(2)
 	sys.stdout.flush()
+	power = 0
 	for i in range(ncards):
-		power = 0
 		card = open('/proc/asound/card' + str(i) + '/stream0', "r")
 		if card.read().find("Running") <> -1:
 			lstactive[i] = 5
@@ -40,7 +40,7 @@ while 1:
 		card.close()
 	
 	if power:
-		smps = 10
+		smps = 30
 		datei = open("/media/ramdisk/01", "w")
 		datei.close()
 	else:
